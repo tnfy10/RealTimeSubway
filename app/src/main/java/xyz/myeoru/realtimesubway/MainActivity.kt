@@ -2,10 +2,22 @@ package xyz.myeoru.realtimesubway
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
+import dagger.hilt.android.AndroidEntryPoint
+import xyz.myeoru.realtimesubway.databinding.ActivityMainBinding
+import xyz.myeoru.realtimesubway.viewmodel.MainViewModel
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+    private val viewModel: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        viewModel.startFetchSubwayCurrentLocation("서울")
     }
 }
