@@ -1,20 +1,20 @@
-package xyz.myeoru.realtimesubway.di
+package xyz.myeoru.realtimesubway.data.di
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import xyz.myeoru.realtimesubway.data.ApiHelper
-import xyz.myeoru.realtimesubway.data.api.SubwayApi
+import xyz.myeoru.realtimesubway.data.api.ReaTimeStationArrivalApi
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class ApiDi {
+object ApiDi {
     @Singleton
     @Provides
     fun provideSubwayApi() = ApiHelper.create(
         "http://swopenAPI.seoul.go.kr",
-        SubwayApi::class.java
+        ReaTimeStationArrivalApi::class.java
     )
 }

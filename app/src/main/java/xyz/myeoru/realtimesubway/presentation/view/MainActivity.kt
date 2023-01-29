@@ -1,11 +1,11 @@
-package xyz.myeoru.realtimesubway
+package xyz.myeoru.realtimesubway.presentation.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import xyz.myeoru.realtimesubway.databinding.ActivityMainBinding
-import xyz.myeoru.realtimesubway.viewmodel.MainViewModel
+import xyz.myeoru.realtimesubway.presentation.viewmodel.MainViewModel
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -18,6 +18,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.startFetchSubwayCurrentLocation("서울")
+        binding.startBtn.setOnClickListener {
+            viewModel.startReceiveStationInfoJob("부천")
+        }
+
+        binding.stopBtn.setOnClickListener {
+            viewModel.stopReceiveStationInfoJob()
+        }
     }
 }
