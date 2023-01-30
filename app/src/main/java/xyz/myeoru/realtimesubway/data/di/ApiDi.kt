@@ -4,7 +4,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import xyz.myeoru.realtimesubway.BuildConfig
 import xyz.myeoru.realtimesubway.data.ApiHelper
+import xyz.myeoru.realtimesubway.data.api.KakaoRestApi
 import xyz.myeoru.realtimesubway.data.api.ReaTimeStationArrivalApi
 import javax.inject.Singleton
 
@@ -13,8 +15,16 @@ import javax.inject.Singleton
 object ApiDi {
     @Singleton
     @Provides
-    fun provideSubwayApi() = ApiHelper.create(
-        "http://swopenAPI.seoul.go.kr",
-        ReaTimeStationArrivalApi::class.java
+    fun provideRealTimeStationArrivalApi() = ApiHelper.create(
+        ReaTimeStationArrivalApi::class.java,
+        "http://swopenAPI.seoul.go.kr"
+    )
+
+    @Singleton
+    @Provides
+    fun provideKakaoRestApi() = ApiHelper.create(
+        KakaoRestApi::class.java,
+        "https://dapi.kakao.com",
+        listOf(Pair("Authorization", BuildConfig.KAKAO_REST_API_KEY))
     )
 }

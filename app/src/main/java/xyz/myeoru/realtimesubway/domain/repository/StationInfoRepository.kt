@@ -13,7 +13,7 @@ class StationInfoRepository @Inject constructor(private val dataSourceImpl: Stat
         stationName: String
     ) : StationInfoModel {
         val result = dataSourceImpl.getRealTimeStationArrival(
-            BuildConfig.API_KEY,
+            BuildConfig.STATION_INFO_API_KEY,
             startIdx,
             endIdx,
             stationName
