@@ -1,5 +1,6 @@
 package xyz.myeoru.realtimesubway.data.datasource.remote
 
+import kotlinx.coroutines.flow.Flow
 import xyz.myeoru.realtimesubway.data.entity.StationInfoEntity
 
 interface StationInfoDataSource {
@@ -8,5 +9,5 @@ interface StationInfoDataSource {
         startIdx: Int,
         endIdx: Int,
         stationName: String
-    ): Result<StationInfoEntity>
+    ): Flow<StationInfoEntity>
 }

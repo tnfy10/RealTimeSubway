@@ -1,5 +1,6 @@
 package xyz.myeoru.realtimesubway.data.datasource.remote
 
+import kotlinx.coroutines.flow.Flow
 import xyz.myeoru.realtimesubway.data.entity.KakaoCategorySearchResultEntity
 
 interface KakaoRestApiDataSource {
@@ -11,5 +12,5 @@ interface KakaoRestApiDataSource {
         page: Int = 1,
         size: Int = 15,
         sort: String = "distance"
-    ): Result<KakaoCategorySearchResultEntity>
+    ): Flow<KakaoCategorySearchResultEntity>
 }
