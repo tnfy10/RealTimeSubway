@@ -1,10 +1,13 @@
-package xyz.myeoru.realtimesubway.data.api
+package xyz.myeoru.realtimesubway.data.di
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import xyz.myeoru.realtimesubway.BuildConfig
+import xyz.myeoru.realtimesubway.data.api.KakaoRestApi
+import xyz.myeoru.realtimesubway.data.api.ReaTimeStationArrivalApi
+import xyz.myeoru.realtimesubway.data.util.ApiHelper
 import javax.inject.Singleton
 
 @Module

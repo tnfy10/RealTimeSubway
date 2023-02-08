@@ -1,4 +1,4 @@
-package xyz.myeoru.realtimesubway.data.api
+package xyz.myeoru.realtimesubway.data.util
 
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
